@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/informatube_deploy_test/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/informatube_deploy_test/static/js/main.c93f3317.chunk.js",
-    "main.js.map": "/informatube_deploy_test/static/js/main.c93f3317.chunk.js.map",
+    "main.js": "/informatube_deploy_test/static/js/main.2c32bde5.chunk.js",
+    "main.js.map": "/informatube_deploy_test/static/js/main.2c32bde5.chunk.js.map",
     "runtime-main.js": "/informatube_deploy_test/static/js/runtime-main.c5d9cea2.js",
     "runtime-main.js.map": "/informatube_deploy_test/static/js/runtime-main.c5d9cea2.js.map",
     "static/css/2.17e5ed98.chunk.css": "/informatube_deploy_test/static/css/2.17e5ed98.chunk.css",
     "static/js/2.25587dea.chunk.js": "/informatube_deploy_test/static/js/2.25587dea.chunk.js",
     "static/js/2.25587dea.chunk.js.map": "/informatube_deploy_test/static/js/2.25587dea.chunk.js.map",
     "index.html": "/informatube_deploy_test/index.html",
-    "precache-manifest.3995734b616a0ac0c4a305e323033657.js": "/informatube_deploy_test/precache-manifest.3995734b616a0ac0c4a305e323033657.js",
+    "precache-manifest.66847c97d519feb68a8107f8b725a6a2.js": "/informatube_deploy_test/precache-manifest.66847c97d519feb68a8107f8b725a6a2.js",
     "service-worker.js": "/informatube_deploy_test/service-worker.js",
     "static/css/2.17e5ed98.chunk.css.map": "/informatube_deploy_test/static/css/2.17e5ed98.chunk.css.map",
     "static/css/main.5ecd60fb.chunk.css.map": "/informatube_deploy_test/static/css/main.5ecd60fb.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.17e5ed98.chunk.css",
     "static/js/2.25587dea.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.c93f3317.chunk.js"
+    "static/js/main.2c32bde5.chunk.js"
   ]
 }
