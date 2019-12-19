@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "71796c22f2391a4e2c4891ee6808a725",
+    "revision": "c56efdbaa90261cb6d6ffb89a64f2767",
     "url": "/informatube_deploy_test/index.html"
   },
   {
