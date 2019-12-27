@@ -12,7 +12,8 @@ import Start from './pages/Start';
 function App() {
   return (
     <>
-      <BrowserRouter basename="/informatube_deploy_test">
+      <BrowserRouter>
+      {/* <BrowserRouter basename="/informatube_deploy_test"> */}
         <CssBaseline />
         <div className="App">
           <Navbar />
