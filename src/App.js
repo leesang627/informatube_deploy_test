@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Navbar from './components/layout/Navbar';
@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       {/* <BrowserRouter> */}
-      <BrowserRouter basename="/informatube_deploy_test">
+      <HashRouter>
         <CssBaseline />
         <div className="App">
           <Navbar />
@@ -29,7 +29,7 @@ function App() {
             </Container>
           </div>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }

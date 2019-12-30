@@ -7,7 +7,13 @@ import Tooltip from '@material-ui/core/Tooltip';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbDownAltIcon from '@material-ui/icons/ThumbDownAlt';
 import Zoom from '@material-ui/core/Zoom';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+
 import { like, dislike, cancelLike, cancelDislike } from '../../reducers/likeReducer';
+import { MODE_HIDDEN } from '../../reducers/viewReducer';
+
+
 
 const useStyles = makeStyles(theme => ({
   buttonContainer: {
@@ -20,6 +26,11 @@ const useStyles = makeStyles(theme => ({
   buttonGroup: {
     display: 'flex',
     justifyContent: 'center',
+  },
+  closeButton: {
+    position: 'absolute',
+    right: 10,
+    top: 15,
   }
 }));
 
@@ -61,8 +72,17 @@ const InfostampViewerButton = ({ uid }) => {
     const win = window.open(url, '_blank');
     win.focus();
   }
+  const handleClickClose = () => {
+    dispatch({ type:MODE_HIDDEN });
+  }
 
   return (
+    <>
+    <div className={classes.closeButton}>
+      <IconButton onClick={handleClickClose}>
+        <CloseIcon/>
+      </IconButton>
+    </div>
     <div className={classes.buttonContainer}>
       <div className={classes.buttonGroup}>
         <ButtonGroup
@@ -86,6 +106,7 @@ const InfostampViewerButton = ({ uid }) => {
         </ButtonGroup>
       </div>
     </div>
+    </>
   )
 }
 
