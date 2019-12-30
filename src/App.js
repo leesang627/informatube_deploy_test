@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   routeContainer: {
     marginTop: 30,
     width: 1280,
-    height: 800,
+    height: "100%",
     overflow: "hidden"
   }
 }))

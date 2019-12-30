@@ -68,13 +68,11 @@ const InfostampViewerButton = ({ uid }) => {
       dispatch(cancelDislike(uid,iid));
     }
   }
-  const handleClickLink = () => {
-    console.log(url);
-    const win = window.open(url, '_blank');
-    win.focus();
-  }
   const handleClickClose = () => {
     dispatch({ type:MODE_HIDDEN });
+  }
+  const handleClickOpenUrl = () => {
+    window.open(url.startsWith('http://') || url.startsWith('https://') ? url : 'http://'+url, "_blank");
   }
 
   return (
@@ -96,7 +94,7 @@ const InfostampViewerButton = ({ uid }) => {
               <ThumbUpAltIcon />
             </Button>
           </Tooltip>
-          <Button onClick={handleClickLink}>
+          <Button onClick={handleClickOpenUrl}>
             링크
           </Button>
           <Tooltip title="쓸모없음" TransitionComponent={Zoom} arrow>
