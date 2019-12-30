@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import BootstrapButton from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
-import GestureIcon from '@material-ui/icons/Gesture';
+import VisibilityIcon from '@material-ui/icons/Visibility';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 import playedSecFunc from '../../functions/playedSecFunc';
@@ -74,15 +74,16 @@ const InfostampForm = ({ playedSec, name, canvasRef }) => {
       time: playedSec, 
     });
     dispatch({type: PAUSE_PLAYER});
-  }
+  };
 
   const handleTimeStart = () => {
     setTimeChange(true);
     dispatch({type: PLAY_PLAYER});
-  }
+  };
 
   useEffect(() => {
-    const regex_url = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+    // const regex_url = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/g;
+    const regex_url = /[-a-zA-Z0-9@:%_.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_.~#?&//=]*)?/g;
     if(!timeChange && infostamp.url.match(regex_url)){
       setDisableSubmit(false);
     } else{
@@ -99,12 +100,13 @@ const InfostampForm = ({ playedSec, name, canvasRef }) => {
   }, [playing])
 
   useEffect(() => {
+    console.log('hello');
     if(isLoaded) {
-      setInfostamp({
-        ...infostamp,
+      setInfostamp(prev => ({
+        ...prev,
         url: '',
         info: '',
-      })
+      }))
     }
   }, [isLoaded])
 
@@ -152,10 +154,9 @@ const InfostampForm = ({ playedSec, name, canvasRef }) => {
             {playedSecFunc.SecTohhmmss(infostamp.time)}<br/>취소
           </Button>
         </Tooltip>
-        
       }
       <div className={classes.br1}></div>
-      <form onSubmit={handleSubmitInfostamp} className={classes.formContainer} autocomplete="off">
+      <form onSubmit={handleSubmitInfostamp} className={classes.formContainer} autoComplete="off">
         <div className={classes.inputContainer}>
           <div className={classes.inputForm}>
             <InputGroup size="sm">
@@ -211,7 +212,7 @@ const InfostampForm = ({ playedSec, name, canvasRef }) => {
             variant="contained"
             disabled={disableSubmit}
           >
-            <GestureIcon/>
+            <VisibilityIcon/>
           </Button>
         </Tooltip>
         

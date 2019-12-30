@@ -7,7 +7,9 @@ import InfostampList from './InfostampList';
 import InfostampView from './InfostampView';
 
 const InformatubeMain = () => {
-  const { name, _id } = useSelector(state => state.user.me);
+  const me = useSelector(state => state.user.me);
+  const name = me && me.name;
+  const _id = me && me._id;
   const [playedSec, setPlayedSec] =useState(0);
   const canvasRef = useRef();
   const viewRef = useRef();
@@ -21,7 +23,7 @@ const InformatubeMain = () => {
       <Grid container spacing={2}>
         <Grid item xs={8}>
           <YoutubePlayer 
-            url="https://www.youtube.com/watch?v=-u-d08sCm6g" 
+            url="https://www.youtube.com/watch?v=e1tqHqLFHIU" 
             handlePlayedSec={handlePlayedSec}
           />
           <InfostampForm playedSec={playedSec} name={name} canvasRef={canvasRef}/>

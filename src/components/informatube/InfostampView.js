@@ -7,11 +7,7 @@ import InfostampSketch from './InfostampSketch';
 import InfostampSketchButton from './InfostampSketchButton';
 import { changeScroll } from '../../reducers/viewReducer';
 import InfostampViewerButton from './InfostampViewerButton';
-
-String.prototype.trunc = String.prototype.trunc ||
-  function(n){
-    return (this.length > n) ? this.substr(0, n-1) + '...' : this;
-  };
+import stringFunc from '../../functions/stringFunc';
 
 const useStyles = makeStyles(theme => ({
   window: {
@@ -46,6 +42,7 @@ const InfostampView = ({ uid, canvasRef, viewRef }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const windowRef = useRef();
+  const { trunc } = stringFunc;
   
   const { mode, imageUrl, selectedInfostamp } = useSelector(state=>state.view);
   const handleScroll = () => {
@@ -78,10 +75,10 @@ const InfostampView = ({ uid, canvasRef, viewRef }) => {
         <div className={classes.viewer}>
           <div className={classes.infoContainer}>
             <Typography variant="subtitle1" color="primary">
-              {selectedInfostamp.info}
+              {trunc(selectedInfostamp.info,30)}
             </Typography>
             <Typography variant="subtitle2">
-              {selectedInfostamp.url.trunc(40)}
+              {trunc(selectedInfostamp.url, 40)}
             </Typography>
           </div>
           <div className={classes.window} ref={viewRef}>

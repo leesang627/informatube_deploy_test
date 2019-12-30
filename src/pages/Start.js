@@ -18,9 +18,9 @@ const Start = () => {
       </Typography>
       <ReactPlayer
         controls={true}
-        url="https://www.youtube.com/watch?v=uJm4AbdhNTQ"
+        url="https://www.youtube.com/watch?v=hG7iMdZHAAs"
       />
-      <Button style={{marginTop: 20}} color="primary" variant="contained" component={Link} to={'/signin'}>실험 시작</Button>
+      <Button style={{marginTop: 20}} color="primary" variant="contained" component={Link} to={'/login'}>실험 시작</Button>
     </div>
   )
 }

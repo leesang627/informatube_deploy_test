@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import SignInForm from '../components/auth/SignInForm';
+import LogInForm from '../components/auth/LogInForm';
 
 const useStyles = makeStyles(theme => ({
   paperContainer: {
@@ -10,14 +10,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const SignIn = () => {
+const LogIn = () => {
   const classes = useStyles();
 
   return (
     <div className={classes.paperContainer}>
-      <SignInForm />
+      <LogInForm />
     </div>
   )
 }
 
-export default SignIn;
+export default LogIn;

@@ -12,11 +12,7 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 import { useDispatch } from 'react-redux';
 import { getImageUrl, MODE_VIEWER, selectInfostamp } from '../../reducers/viewReducer';
 import playedSecFunc from '../../functions/playedSecFunc';
-
-String.prototype.trunc = String.prototype.trunc ||
-  function(n){
-    return (this.length > n) ? this.substr(0, n-1) + '...' : this;
-  };
+import stringFunc from '../../functions/stringFunc';
 
 const useStyles = makeStyles(theme => ({
   inline: {
@@ -27,6 +23,8 @@ const useStyles = makeStyles(theme => ({
 const InfostampItem = ({ infostamp, viewRef }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const { SecTohhmmss } = playedSecFunc;
+  const { trunc } = stringFunc;
 
   const handleClickView = () => {
     dispatch(getImageUrl(infostamp));
@@ -45,7 +43,7 @@ const InfostampItem = ({ infostamp, viewRef }) => {
         <Avatar alt={infostamp.stamper.name}>{infostamp.stamper.name.slice(0,2)}</Avatar>
       </ListItemAvatar>
       <ListItemText
-        primary={infostamp.info.trunc(60)}
+        primary={trunc(infostamp.info, 60)}
         secondary={
           <>
             <Typography
@@ -54,7 +52,7 @@ const InfostampItem = ({ infostamp, viewRef }) => {
               className={classes.inline}
               color="textPrimary"
             >
-              {infostamp.url.trunc(70)}
+              {trunc(infostamp.url, 70)}
             </Typography>
             <br/>
             <Typography
@@ -63,7 +61,7 @@ const InfostampItem = ({ infostamp, viewRef }) => {
               className={classes.inline}
               color="textPrimary"
             >
-              {playedSecFunc.SecTohhmmss(infostamp.time-10)}~{playedSecFunc.SecTohhmmss(infostamp.time+10)} ------- 유용함 {infostamp.likedUsers.length} / 쓸모없음 {infostamp.dislikedUsers.length}
+              {SecTohhmmss(infostamp.time-10)}~{SecTohhmmss(infostamp.time+10)} ------- 유용함 {infostamp.likedUsers.length} / 쓸모없음 {infostamp.dislikedUsers.length}
             </Typography>
           </>
         }

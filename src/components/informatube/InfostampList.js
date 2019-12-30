@@ -17,7 +17,7 @@ const InfostampList = ({ playedSec, viewRef }) => {
   const classes = useStyles();
   useEffect(() => {
     dispatch(loadInfostamps());
-  }, []);
+  }, [dispatch]);
 
   const infostampsInTime = infostamps && infostamps
   .filter((infostamp) => {

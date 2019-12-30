@@ -1,15 +1,18 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { LOG_OUT_REQUEST } from '../../reducers/userReducer';
 
 const FinishButton = () => {
   const [open, setOpen] = React.useState(false);
 
+  const dispatch = useDispatch();
   const history = useHistory();
 
   const handleClickOpen = () => {
@@ -23,6 +26,7 @@ const FinishButton = () => {
   const handleClickFinish = () => {
     handleClose();
     history.push('/finish');
+    dispatch({ type:LOG_OUT_REQUEST });
   }
 
   return (

@@ -6,7 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { addUser } from '../../reducers/userReducer';
+import { logIn } from '../../reducers/userReducer';
 
 const useStyles = makeStyles(theme => ({
   formContainer: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const SignInForm = () => {
+const LogInForm = () => {
   const classes = useStyles();
   const { me } = useSelector(state=>state.user);
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const SignInForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addUser(name));
+    dispatch(logIn(name));
   }
 
   return (
@@ -63,4 +63,4 @@ const SignInForm = () => {
   )
 }
 
-export default SignInForm;
+export default LogInForm;
