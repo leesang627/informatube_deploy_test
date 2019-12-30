@@ -61,7 +61,7 @@ const InfostampItem = ({ infostamp, viewRef }) => {
               className={classes.inline}
               color="textPrimary"
             >
-              {SecTohhmmss(infostamp.time-10)}~{SecTohhmmss(infostamp.time+10)} ------- 유용함 {infostamp.likedUsers.length} / 쓸모없음 {infostamp.dislikedUsers.length}
+              {SecTohhmmss(infostamp.time)}~{SecTohhmmss(infostamp.time+10)} ------- 유용함 {infostamp.likedUsers.length} / 쓸모없음 {infostamp.dislikedUsers.length}
             </Typography>
           </>
         }

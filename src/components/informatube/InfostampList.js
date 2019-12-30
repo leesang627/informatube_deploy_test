@@ -21,7 +21,7 @@ const InfostampList = ({ playedSec, viewRef }) => {
 
   const infostampsInTime = infostamps && infostamps
   .filter((infostamp) => {
-    return parseInt(infostamp.time)-10<playedSec && playedSec<parseInt(infostamp.time)+10;
+    return parseInt(infostamp.time)<playedSec && playedSec<parseInt(infostamp.time)+10;
   })
   .sort((a, b) => {
     return ((a.likedUsers.length - a.dislikedUsers.length) - (b.likedUsers.length - b.dislikedUsers.length));
