@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/informatube_deploy_test/precache-manifest.2b1b8ea3785375ca4119e6d05d7d8af2.js"
+  "/informatube_deploy_test/precache-manifest.123c02b55f36b5e11b4c58609cf9ce1e.js"
 );
 
 self.addEventListener('message', (event) => {

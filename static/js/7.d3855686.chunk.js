@@ -1,0 +1,2 @@
+(this.webpackJsonpinformatube=this.webpackJsonpinformatube||[]).push([[7],{1254:function(t,n,e){"use strict";e.r(n);var u=e(0),a=e.n(u);n.default=function(){return a.a.createElement("div",null,"About")}}}]);
+//# sourceMappingURL=7.d3855686.chunk.js.map
