@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9e7df287409d3ae6900b4b3a0a2566fb",
+    "revision": "abbc75d09e436308bd56c7825b325097",
     "url": "/informatube_deploy_test/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/informatube_deploy_test/static/css/4.17e5ed98.chunk.css"
   },
   {
-    "revision": "ad1fea73fb8fca8fe6db",
+    "revision": "ed299f63abfebff57145",
     "url": "/informatube_deploy_test/static/css/main.5ecd60fb.chunk.css"
   },
   {
@@ -36,8 +36,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/informatube_deploy_test/static/js/4.53055ab2.chunk.js.LICENSE"
   },
   {
-    "revision": "6f10ccb20da7ae525e1b",
-    "url": "/informatube_deploy_test/static/js/5.d7a1ad6c.chunk.js"
+    "revision": "c3074d379c90cc34a261",
+    "url": "/informatube_deploy_test/static/js/5.7b3b3c5b.chunk.js"
   },
   {
     "revision": "f5aa0117a2962e005b7f",
@@ -56,11 +56,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/informatube_deploy_test/static/js/9.8b1b06b7.chunk.js"
   },
   {
-    "revision": "ad1fea73fb8fca8fe6db",
-    "url": "/informatube_deploy_test/static/js/main.a3affe20.chunk.js"
+    "revision": "ed299f63abfebff57145",
+    "url": "/informatube_deploy_test/static/js/main.6b899db8.chunk.js"
   },
   {
-    "revision": "f4f835377bdbfe1e5f8f",
-    "url": "/informatube_deploy_test/static/js/runtime-main.c2cc1243.js"
+    "revision": "111378a88b5517a963c6",
+    "url": "/informatube_deploy_test/static/js/runtime-main.0a3228bd.js"
   }
 ]);
