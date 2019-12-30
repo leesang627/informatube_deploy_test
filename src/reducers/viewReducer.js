@@ -8,9 +8,10 @@ const initialState={
   selectedInfostamp: null,
 };
 
-export const urlToImage = (url) => ({
+export const urlToImage = (url, uid) => ({
   type: URL_TO_IMAGE_REQUEST,
   url,
+  uid,
 });
 
 export const getImageUrl = (infostamp) => ({
@@ -68,7 +69,7 @@ const viewReducer = (state=initialState, action) => {
     case GET_IMAGE_URL: {
       return {
         ...state,
-        imageUrl:`http://localhost:3065/images/${action.infostamp.stamper._id}/${action.infostamp._id}.png`,
+        imageUrl:`http://localhost:3065/images/${action.infostamp.stamper._id}/${action.infostamp._id}.jpg`,
         scroll:action.infostamp.scroll,
       }
     }

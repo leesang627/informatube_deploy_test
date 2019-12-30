@@ -10,6 +10,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 import { saveInfostamp } from '../../reducers/infostampReducer';
 import { MODE_HIDDEN } from '../../reducers/viewReducer';
+import { loadInfostamps } from '../../reducers/listReducer';
 
 
 const useStyles = makeStyles(theme => ({
@@ -36,6 +37,7 @@ const InfostampSketchButton = ({ canvasRef, uid }) => {
   const handleClickSave = () => {
     const imgData = canvasRef.current.toDataURL();
     dispatch(saveInfostamp({imgData, uid, url, info, time, scroll}));
+    dispatch(loadInfostamps());
   };
 
   const handleClickUndo = () => {

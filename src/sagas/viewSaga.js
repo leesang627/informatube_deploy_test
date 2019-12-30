@@ -8,14 +8,14 @@ import baseURL from './baseURL';
 
 axios.defaults.baseURL = baseURL;
 
-function urlToImageAPI(url) {
-  return axios.post('/infostamp/url', {url: url})
+function urlToImageAPI([url, uid]) {
+  return axios.post('/infostamp/url', {url, uid})
     .then((res) => (res.data));
 }
 
 function* urlToImage(action) {
   try{
-    const { imageUrl } = yield call(urlToImageAPI, action.url);
+    const { imageUrl } = yield call(urlToImageAPI, [action.url, action.uid]);
     yield put({
       type: URL_TO_IMAGE_SUCCESS,
       imageUrl: imageUrl,

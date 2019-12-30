@@ -69,6 +69,7 @@ const InfostampViewerButton = ({ uid }) => {
     }
   }
   const handleClickLink = () => {
+    console.log(url);
     const win = window.open(url, '_blank');
     win.focus();
   }

@@ -59,6 +59,8 @@ const InfostampForm = ({ playedSec, name, canvasRef }) => {
   const { mode } = useSelector(state => state.view);
   const { playing } = useSelector(state => state.player);
   const { isLoaded } = useSelector(state => state.list);
+  const me = useSelector(state => state.user.me);
+  const _id = me && me._id;
   const [timeChange, setTimeChange] = useState(true);
   const [disableSubmit, setDisableSubmit] = useState(true);
   const [infostamp, setInfostamp] = useState({
@@ -121,7 +123,7 @@ const InfostampForm = ({ playedSec, name, canvasRef }) => {
     e.preventDefault();
     canvasRef.current && canvasRef.current.clear();
     dispatch(changeFormData(infostamp));
-    dispatch(urlToImage(infostamp.url));
+    dispatch(urlToImage(infostamp.url, _id));
     dispatch({type: MODE_SKETCH});
   } 
 

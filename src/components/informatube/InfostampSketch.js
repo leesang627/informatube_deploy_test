@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const InfostampSketch = ({ src, uid, canvasRef }) => {
+const InfostampSketch = ({ src, canvasRef }) => {
   const classes = useStyles();
 
   const { isChanging } = useSelector(state=>state.view);
@@ -45,10 +45,11 @@ const InfostampSketch = ({ src, uid, canvasRef }) => {
 
   const [canvasHeight, setCanvasHeight] = useState(200);
   useEffect(() => {
-    setTimeout(() => {
-      setCanvasHeight(imgRef.current && imgRef.current.height);
-    },100)
-  }, [src]);
+    if(imgRef.current) {
+      console.log(imgRef.current.height);
+      setCanvasHeight(imgRef.current.height);
+    }
+  }, [imgRef.current]);
   return (
     <>
       {
@@ -66,7 +67,7 @@ const InfostampSketch = ({ src, uid, canvasRef }) => {
               className={classes.canvas}
               ref={canvasRef}
               tool={Tools.Pencil}
-              lineColor='red'
+              lineColor='rgba(255,0,0,0.7)'
               lineWidth={3}
               height={canvasHeight}
             />
