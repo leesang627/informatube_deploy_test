@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import { useSelector } from 'react-redux';
 import { SketchField, Tools } from 'react-sketch';
 import { makeStyles } from '@material-ui/core/styles';
@@ -44,12 +44,11 @@ const InfostampSketch = ({ src, canvasRef }) => {
   const imgRef = useRef();
 
   const [canvasHeight, setCanvasHeight] = useState(200);
-  useEffect(() => {
-    if(imgRef.current) {
-      console.log(imgRef.current.height);
-      setCanvasHeight(imgRef.current.height);
-    }
-  }, [imgRef.current]);
+  
+  const handleLoadImage = () => {
+    setCanvasHeight(imgRef.current.height);
+  }
+
   return (
     <>
       {
@@ -62,7 +61,7 @@ const InfostampSketch = ({ src, canvasRef }) => {
           </div>
           :
           <>
-            <img ref={imgRef} src={src} className={classes.image} alt="View"/>
+            <img ref={imgRef} src={src} className={classes.image} alt="View" onLoad={handleLoadImage}/>
             <SketchField
               className={classes.canvas}
               ref={canvasRef}

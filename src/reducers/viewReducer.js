@@ -69,7 +69,7 @@ const viewReducer = (state=initialState, action) => {
     case GET_IMAGE_URL: {
       return {
         ...state,
-        imageUrl:`http://localhost:3065/images/${action.infostamp.stamper._id}/${action.infostamp._id}.jpg`,
+        imageUrl:`http://localhost:3065/images/${action.infostamp.stamper._id}/${action.infostamp._id}.png`,
         scroll:action.infostamp.scroll,
       }
     }
