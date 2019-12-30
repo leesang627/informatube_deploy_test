@@ -7,7 +7,7 @@ import { PLAY_PLAYER, PAUSE_PLAYER } from '../../reducers/playerReducer';
 const useStyles = makeStyles(theme => ({
   playerWrapper: {
     position: "relative",
-    height: "50vh"
+    height: 480
   },
   ReactPlayer: {
     position: "absolute",

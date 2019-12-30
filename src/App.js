@@ -1,16 +1,29 @@
 import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
 import Navbar from './components/layout/Navbar';
-// import Experiment from './pages/Experiment';
-// import LogIn from './pages/LogIn';
-// import About from './pages/About';
-// import Finish from './pages/Finish';
-// import Start from './pages/Start';
-import {Start, LogIn, About, Experiment, Finish} from './pages';
+import Experiment from './pages/Experiment';
+import LogIn from './pages/LogIn';
+import About from './pages/About';
+import Finish from './pages/Finish';
+import Start from './pages/Start';
+
+const useStyles = makeStyles(theme => ({
+  mainContainer: {
+    display: "flex",
+    justifyContent: "center"
+  },
+  routeContainer: {
+    marginTop: 30,
+    width: 1280,
+    height: 800,
+    overflow: "hidden"
+  }
+}))
 
 function App() {
+  const classes = useStyles();
   return (
     <>
       {/* <BrowserRouter> */}
@@ -18,8 +31,8 @@ function App() {
         <CssBaseline />
         <div className="App">
           <Navbar />
-          <div style={{marginTop: '30px'}}>
-            <Container fixed>
+          <div className={classes.mainContainer}>
+            <div className={classes.routeContainer}>
               <Switch>
                 <Route exact path={"/"} component={Start} />
                 <Route path={"/login"} component={LogIn} />
@@ -27,7 +40,8 @@ function App() {
                 <Route path={"/experiment"} component={Experiment} />
                 <Route path={"/finish"} component={Finish} />
               </Switch>
-            </Container>
+            </div>
+            
           </div>
         </div>
       </HashRouter>
