@@ -84,7 +84,6 @@ const InfostampForm = ({ playedSec, name, canvasRef }) => {
   };
 
   useEffect(() => {
-    // const regex_url = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/g;
     const regex_url = /[-a-zA-Z0-9@:%_.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_.~#?&//=]*)?/g;
     if(!timeChange && infostamp.url.match(regex_url)){
       setDisableSubmit(false);
