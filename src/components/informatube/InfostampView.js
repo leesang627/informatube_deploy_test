@@ -2,17 +2,18 @@ import React, { useRef} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-
 import InfostampSketch from './InfostampSketch';
 import InfostampSketchButton from './InfostampSketchButton';
 import { changeScroll } from '../../reducers/viewReducer';
 import InfostampViewerButton from './InfostampViewerButton';
 import stringFunc from '../../functions/stringFunc';
+import InfostampViewer from './InfostampViewer';
+import { useEffect } from 'react';
 
 const useStyles = makeStyles(theme => ({
   window: {
     width: "100%",
-    height: 512,
+    height: 600,
     overflow: "auto",
     position: 'relative',
   },
@@ -35,19 +36,39 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+  },
+  cover: {
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    zIndex: 1,
+    backgroundColor: "white",  
+  },
+  progress: {
+    position: 'absolute',
+    top: '40%',
+    left: '40%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   }
 }));
 
-const InfostampView = ({ uid, canvasRef, viewRef }) => {
+const InfostampView = ({ uid, canvasRef }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const windowRef = useRef();
+  const viewRef = useRef();
   const { trunc } = stringFunc;
-  
   const { mode, imageUrl, selectedInfostamp } = useSelector(state=>state.view);
   const handleScroll = () => {
     dispatch(changeScroll(windowRef.current.scrollTop));
   }
+  useEffect(() => {
+    console.log(selectedInfostamp);
+  }, [selectedInfostamp]);
   
   return (
     <>
@@ -82,8 +103,13 @@ const InfostampView = ({ uid, canvasRef, viewRef }) => {
             </Typography>
           </div>
           <div className={classes.window} ref={viewRef}>
-            <img src={imageUrl} className={classes.image} alt="View" />
-          </div>
+            <InfostampViewer 
+              imageUrl={imageUrl}  
+              viewRef={viewRef}
+              selectedInfostamp={selectedInfostamp}
+            />
+          </div> 
+          
         </div>
         <InfostampViewerButton uid={uid} />
       </>

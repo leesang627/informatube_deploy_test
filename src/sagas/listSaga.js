@@ -14,7 +14,6 @@ function loadInfostampsAPI() {
 function* loadInfostamps(action) {
   try{
     const infostamps = yield call(loadInfostampsAPI);
-    console.log(infostamps);
     yield put({
       type: LOAD_INFOSTAMPS_SUCCESS,
       infostamps,

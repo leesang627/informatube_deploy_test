@@ -12,14 +12,13 @@ const InformatubeMain = () => {
   const _id = me && me._id;
   const [playedSec, setPlayedSec] =useState(0);
   const canvasRef = useRef();
-  const viewRef = useRef();
 
   const handlePlayedSec = (playedSec) => {
     setPlayedSec(playedSec);
   }
 
   return (
-    <div style={{flexGrow: 1}}>
+    <div style={{width:1280}}>
       <Grid container spacing={2}>
         <Grid item xs={8}>
           <YoutubePlayer 
@@ -27,10 +26,10 @@ const InformatubeMain = () => {
             handlePlayedSec={handlePlayedSec}
           />
           <InfostampForm playedSec={playedSec} name={name} canvasRef={canvasRef}/>
-          <InfostampList playedSec={playedSec} viewRef={viewRef}/>
+          <InfostampList playedSec={playedSec}/>
         </Grid>
         <Grid item xs={4} style={{position: 'relative'}}>
-          <InfostampView uid={_id} canvasRef={canvasRef} viewRef={viewRef}/>
+          <InfostampView uid={_id} canvasRef={canvasRef}/>
         </Grid>
       </Grid>
     </div>

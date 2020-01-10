@@ -43,7 +43,9 @@ const LogInForm = () => {
         익명 로그인
       </Typography>
       <Typography component="p" style={{margin: "45px 0 5px 0"}}>
-        당신을 식별할 수 있는 아이디를 마음대로 적으세요! <br />어떤 아이디이던 상관 없습니다.
+        당신을 식별할 수 있는 아이디를 마음대로 적으세요! <br />
+        어떤 아이디이던 상관 없습니다. <br />
+        단, 한 번 사용하시면 그 아이디를 계속 사용하셔야 합니다.
       </Typography>
       <form onSubmit={handleSubmit}>
         <div style={{marginBottom: 30}}>

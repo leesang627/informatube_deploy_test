@@ -5,7 +5,8 @@ const initialState={
   changeError: '',
   mode: 'hidden',
   scroll: 0,
-  selectedInfostamp: null,
+  selectedInfostamp: {},
+  viewIsLoaded: false,
 };
 
 export const urlToImage = (url, uid) => ({
@@ -41,6 +42,9 @@ export const MODE_HIDDEN = 'MODE_HIDDEN';
 export const MODE_SKETCH = 'MODE_SKETCH';
 export const MODE_VIEWER = 'MODE_VIEWER';
 
+export const VIEW_LOADED = 'VIEW_LOADED';
+export const VIEW_UNLOADED = 'VIEW_UNLOADED';
+
 const viewReducer = (state=initialState, action) => {
   switch (action.type) {
     case URL_TO_IMAGE_REQUEST: {
@@ -69,7 +73,7 @@ const viewReducer = (state=initialState, action) => {
     case GET_IMAGE_URL: {
       return {
         ...state,
-        imageUrl:`http://localhost:3065/images/${action.infostamp.stamper._id}/${action.infostamp._id}.png`,
+        imageUrl:`http://informatube.ngrok.io/images/${action.infostamp.stamper._id}/${action.infostamp._id}.jpg`,
         scroll:action.infostamp.scroll,
       }
     }
@@ -101,6 +105,18 @@ const viewReducer = (state=initialState, action) => {
       return {
         ...state,
         mode: 'viewer',
+      }
+    }
+    case VIEW_LOADED: {
+      return {
+        ...state,
+        viewIsLoaded: true,
+      }
+    }
+    case VIEW_UNLOADED: {
+      return {
+        ...state,
+        viewIsLoaded: false,
       }
     }
     default: {

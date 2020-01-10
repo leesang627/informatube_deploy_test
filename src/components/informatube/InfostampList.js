@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const InfostampList = ({ playedSec, viewRef }) => {
+const InfostampList = ({ playedSec }) => {
   const dispatch = useDispatch();
   const { infostamps } = useSelector(state=>state.list)
   const classes = useStyles();
@@ -24,7 +24,7 @@ const InfostampList = ({ playedSec, viewRef }) => {
     return parseInt(infostamp.time)-1<playedSec && playedSec<parseInt(infostamp.time)+10;
   })
   .sort((a, b) => {
-    return ((a.likedUsers.length - a.dislikedUsers.length) - (b.likedUsers.length - b.dislikedUsers.length));
+    return -((a.likedUsers.length - a.dislikedUsers.length) - (b.likedUsers.length - b.dislikedUsers.length));
   });
 
   return (
@@ -33,7 +33,7 @@ const InfostampList = ({ playedSec, viewRef }) => {
         { 
           infostampsInTime && 
           infostampsInTime.map((infostamp) => (
-            <InfostampItem key={infostamp.createdAt} infostamp={infostamp} viewRef={viewRef} />
+            <InfostampItem key={infostamp.createdAt} infostamp={infostamp} />
           ))
         }
       </List>

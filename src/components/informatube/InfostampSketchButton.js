@@ -18,8 +18,8 @@ const useStyles = makeStyles(theme => ({
     width: 300,
     height: 50,
     position: 'absolute',
-    left: 50,
-    top: 520,
+    left: 55,
+    top: 600,
   },
   buttonGroup: {
     display: 'flex',

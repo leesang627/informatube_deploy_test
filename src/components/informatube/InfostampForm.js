@@ -101,7 +101,6 @@ const InfostampForm = ({ playedSec, name, canvasRef }) => {
   }, [playing])
 
   useEffect(() => {
-    console.log('hello');
     if(isLoaded) {
       setInfostamp(prev => ({
         ...prev,

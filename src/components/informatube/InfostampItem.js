@@ -9,8 +9,9 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import VisibilityIcon from '@material-ui/icons/Visibility';
+import { grey } from '@material-ui/core/colors';
 import { useDispatch } from 'react-redux';
-import { getImageUrl, MODE_VIEWER, selectInfostamp } from '../../reducers/viewReducer';
+import { getImageUrl, MODE_VIEWER, selectInfostamp, VIEW_UNLOADED } from '../../reducers/viewReducer';
 import playedSecFunc from '../../functions/playedSecFunc';
 import stringFunc from '../../functions/stringFunc';
 
@@ -18,29 +19,33 @@ const useStyles = makeStyles(theme => ({
   inline: {
     display: 'inline',
   },
+  avatarColor: {
+    color: theme.palette.getContrastText(grey[900]),
+    backgroundColor: grey[900],
+    fontSize: 15,
+  }
 }));
 
-const InfostampItem = ({ infostamp, viewRef }) => {
+const InfostampItem = ({ infostamp }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const { SecTohhmmss } = playedSecFunc;
   const { trunc } = stringFunc;
 
+  
+
   const handleClickView = () => {
+    dispatch({type: VIEW_UNLOADED});
     dispatch(getImageUrl(infostamp));
     dispatch({type: MODE_VIEWER});
     dispatch(selectInfostamp(infostamp));
-    
-    setTimeout(() => {
-      viewRef.current.scrollTop = infostamp.scroll;
-    }, 100);
   }
 
   return (
     <>
     <ListItem alignItems="flex-start">
       <ListItemAvatar>
-        <Avatar alt={infostamp.stamper.name}>{infostamp.stamper.name.slice(0,2)}</Avatar>
+        <Avatar className={classes.avatarColor}>{infostamp.stamper.name.slice(0,2)}</Avatar>
       </ListItemAvatar>
       <ListItemText
         primary={trunc(infostamp.info, 60)}
